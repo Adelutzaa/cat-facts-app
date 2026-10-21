@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Aplicatie simpla care afiseaza curiozitati despre animale folosind Wikipedia REST API.">
+  <title>Animal Facts</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="header">
+    <h1>Animal Facts</h1>
+    <p>Descoperă curiozități despre animale</p>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <h2>Cere curiozități</h2>
+      <form id="facts-form" novalidate>
+        <div class="field">
+          <label for="name">Numele tău</label>
+          <input type="text" id="name" name="name" placeholder="ex: Maria" required minlength="2">
+          <small class="error" id="name-error"></small>
+        </div>
+
+        <div class="field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="nume@exemplu.ro" required>
+          <small class="error" id="email-error"></small>
+        </div>
+
+        <div class="row">
+          <div class="field">
+            <label for="animal">Animal</label>
+            <select id="animal" name="animal">
+              <option value="Cat">Pisică</option>
+              <option value="Dog">Câine</option>
+              <option value="Horse">Cal</option>
+              <option value="Elephant">Elefant</option>
+              <option value="Lion">Leu</option>
+              <option value="Giraffe">Girafă</option>
+              <option value="Dolphin">Delfin</option>
+              <option value="Penguin">Pinguin</option>
+              <option value="Giant panda">Panda</option>
+              <option value="Wolf">Lup</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="amount">Nr. curiozități (1–5)</label>
+            <input type="number" id="amount" name="amount" min="1" max="5" value="3" required>
+            <small class="error" id="amount-error"></small>
+          </div>
+        </div>
+
+        <button type="submit" id="submit-btn">Arată curiozități</button>
+      </form>
+    </section>
+
+    <section class="results" aria-live="polite">
+      <p id="status" class="status"></p>
+      <ul id="facts-list" class="facts-list"></ul>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Date furnizate de <a href="https://en.wikipedia.org/api/rest_v1/" target="_blank" rel="noopener">Wikipedia REST API</a></p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
